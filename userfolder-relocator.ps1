@@ -1,4 +1,48 @@
 <#
+.SYNOPSIS
+    User Folder Relocator – safely moves Windows user folders (Documents, Downloads, Pictures, etc.)
+    to another drive while updating registry paths.
+
+.DESCRIPTION
+    This script relocates known Windows user folders to a new base path (e.g. D:\Gerhard).
+    Features include:
+    - Dry-run mode for safe preview
+    - Registry updates for known folders (using GUIDs where required)
+    - File moves via robocopy
+    - Progress display and logging
+    - Skip/continue prompts if folders already redirected
+
+.VERSION
+    1.0.0
+
+.AUTHOR
+    Richard Dvořák (r3dvorak on GitHub)
+
+.LASTUPDATED
+    2025-09-07
+
+.LICENSE
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+.NOTES
+    Tested on Windows 10 and Windows 11.
+    Requires PowerShell 5.1+ or PowerShell Core.
+    Script must be run with execution policy allowing local scripts:
+    Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+#>
+
+<#
 =====================================================================
   BEFORE RUNNING THIS SCRIPT FOR THE FIRST TIME:
 
@@ -141,3 +185,4 @@ if (-not $dryRun) {
 }
 
 Write-Log "=== Script Finished ==="
+
